@@ -18,22 +18,19 @@ const server = http.createServer(function(req,res){
   console.log('req.headers', req.headers);
 
   if (req.method === 'POST' && req.url.pathname === '/cowsay'){
-    console.log('hit POST route');
     parseBody(req, function(err, body){
       if (err) {
-        console.log('first if');
         res.writeHead(400, {'Content-Type': 'text/plain'});
         res.write(cowsay.say({text: 'bad request\n Callback error'}));
         res.end();
       }
       if(!req.body.text){
-        console.log('second if');
         res.writeHead(400, {'Content-Type': 'text/plain'});
         res.write(cowsay.say({text: 'bad request\ntry: Must have valid text property in JSON'}));
         res.end();
       }
       if(req.body.text){
-        console.log('third if');
+        console.log(body);
         res.writeHead(200, {'Content-Type': 'text/plain'});
         res.write(cowsay.say({text: req.body.text}));
         res.end();
