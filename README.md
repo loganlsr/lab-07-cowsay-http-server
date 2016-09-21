@@ -1,52 +1,26 @@
-![cf](https://i.imgur.com/7v5ASc8.png) lab-07-cowsay-http-server
-======
+This is a HTTP server that uses Cowsay to respond to GET and POST commands that are input.
 
-# To Submit this Assignment
-  * fork this repository
-  * write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-duncan`
-  * push to your repository
-  * submit a pull request to this repository
-  * submit a link to your PR in canvas
-  * write a question and observation on canvas
 
-# Build Tool Instructions
-* add a package.json
-* add a eslintrc
-* add a gitignore
-* add a readme with project description
-* add a gulpfile
+To get different animals to display instead of the cow, type "f==(animal)" after your server call. You can replace (animal) with one of the following:
 
-# Directions
-* Create a HTTP Server using the http module
-* create a parse body module that is used for all POST request
+beavis.zen,  bong,  bud-frogs,  bunny,  cheese,  cower,  daemon,  default,  doge,  dragon-and-cow,  dragon,  elephant-in-snake,  elephant,  eyes,  flaming-sheep,  ghostbusters,  goat,  head-in,  hedgehog,  hellokitty,  kiss,  kitty,  koala,  kosh,  luke-koala,  mech-and-cow,  meow,  milk,  moofasa,  moose,  mutilated,  ren,  satanic,  sheep,  skeleton,  small, squirrel,  stegosaurus,  stimpy,  supermilker,  surgery,  telebears,  turkey,  turtle,  tux,  vader-koala,  vader
 
-## Server Endpoints
-### /
-for all request to `/` the server should respond with the following:
- * a header containing `Content-Type: text/plain`
- * a status code of **200**
- * a response with the string "hello world"
+This project requires httpie. To get httpie, run the following command in your terminal: brew install httpie
 
-### /cowsay
-#### GET REQUEST    
-* the query string should have the key value `text=<message>`
-* the response header should include `Content-Type: text/plain`
-* if the query `text=messsage` is set, respond with:  
- * a status code of 200
- * a body including the value returned from `cowsay.say({text: <querystring text>})`
-* if the query `text=message` is **not** set, respond with:  
- * status code = 400
- * a body including the value returned from `cowsay.say({text: 'bad request\ntry: localhost:3000/cowsay?text=howdy'})`
 
-#### POST REQUEST   
-* the response header should include `Content-Type: text/plain`
-* if the json `{text: messsage}` is set in the body, respond with:  
- * a status code of 200
- * a body including the value returned from `cowsay.say({text: <querystring text>})`
-* if the json`{text: messsage}`is **not** set in the body, respond with:  
- * status code = 400
- * a body including the value returned from `cowsay.say({text: 'bad request\ntry: localhost:3000/cowsay?text=howdy'})`
+Here is what should print to your terminal when run correctly:
 
-## Bonus
-* **2pts** - add the ability to change the cowfile, **aka: dragon, sheep, ect** using a querysting
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Type: text/plain
+Date: Wed, 21 Sep 2016 15:34:39 GMT
+Transfer-Encoding: chunked
 
+ ____
+< hi >
+ ----
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
