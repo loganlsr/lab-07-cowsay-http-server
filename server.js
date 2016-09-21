@@ -32,7 +32,7 @@ const server = http.createServer(function(req,res){
       if(req.body.text){
         console.log(body);
         res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.write(cowsay.say({text: req.body.text}));
+        res.write(cowsay.say({text: req.body.text, f: req.body.f}));
         res.end();
       }
     });
@@ -46,7 +46,7 @@ const server = http.createServer(function(req,res){
 
   if (req.method === 'GET' && req.url.pathname === '/cowsay' && req.url.query.text){
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.write(cowsay.say({text: req.url.query.text}));
+    res.write(cowsay.say({text: req.url.query.text, f: req.url.query.f}));
     res.end();
   }
 
